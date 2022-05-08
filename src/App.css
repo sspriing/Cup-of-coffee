@@ -1,0 +1,84 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: rgb(204, 188, 170);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color:rgb(12, 89, 40);
+}
+
+button {
+  font-size: calc(10px + 2vmin);
+}
+
+.react-calendar.My-calendar{
+  margin-left: 50px;
+  margin-right: 50px;
+  padding:20px;
+  border:3px solid rgb(12, 89, 40);
+  background-color: #ffffff42;
+  color:rgb(12, 89, 40);
+}
+
+.react-calendar__navigation button{
+  border: none;
+  background-color:#ffffff00;
+  color:rgb(12, 89, 40);
+  font-weight: 150;
+  margin-bottom: 10px;
+}
+.react-calendar__month-view__weekdays__weekday abbr{
+  text-decoration: none;
+  font-weight: 200;
+}
+.react-calendar__month-view__days button:not(highlight){
+  border: 1.5px solid rgb(22, 90, 14);
+  height:70px;
+  color:rgb(12, 89, 40);
+  /* margin-top:1px; */
+  /* margin-bottom: 1px; */
+  background-color: #ffffff91;
+}
+
+.react-calendar__month-view__days__day button{
+  background: #f3a95f;
+}
+
+.Brand-icon{
+  height: 35px;
+  margin:3px
+}
+
+.Brand-icon:hover{
+  height: 30px;
+  margin:5.5px
+}
+
+.My-coffee{
+  height:50px;
+  position:relative;
+  top:10px;
+}
+
+.My-coffee-type{
+  height:100px;
+  position:absolute;
+  transform: translate(-50%, -50%);
+}
+.My-coffee-brand{
+  height:35px;
+  position:absolute;
+  transform: translate(-50%, -50%);
+  top:10px
+}
