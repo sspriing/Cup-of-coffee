@@ -1,9 +1,11 @@
 import create from 'zustand'
 
-export const coffeType = {1 :'Americano', 2: 'Espresso', 3 : 'Latte'}
-export const coffeBrand = {1 : 'StarBucks', 2 : 'TwoSome', 3 : 'Hollys'
-    , 4 : 'Ediya', 5 : 'TomnToms', 6 : 'Pascucci'
-    , 7 :  'AngelInUs', 8 : 'GongCha', 9 : 'BlueBottle'}
+export const coffeType = 
+  {1:'Americano', 2: 'Espresso', 3 : 'Latte'}
+export const coffeBrand = 
+  {1: 'StarBucks', 2: 'TwoSome', 3: 'Hollys', 4: 'Ediya'
+  ,5: 'TomnToms', 6: 'Pascucci', 7:  'AngelInUs', 8: 'GongCha'
+  ,9: 'BlueBottle'}
 
 export const useDay = create(set => ({
     thisDay : new Date()

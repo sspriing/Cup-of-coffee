@@ -56,29 +56,29 @@ button {
 }
 
 .Brand-icon{
-  height: 35px;
+  height: 45px;
   margin:3px
 }
 
 .Brand-icon:hover{
-  height: 30px;
+  height: 40px;
   margin:5.5px
 }
 
 .My-coffee{
-  height:50px;
+  height:120px;
   position:relative;
-  top:10px;
+  top:30px;
 }
 
 .My-coffee-type{
-  height:100px;
+  height:150px;
   position:absolute;
   transform: translate(-50%, -50%);
 }
 .My-coffee-brand{
-  height:35px;
+  height:55px;
   position:absolute;
   transform: translate(-50%, -50%);
-  top:10px
+  top:15px
 }
