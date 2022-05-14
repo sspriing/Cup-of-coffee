@@ -1,4 +1,5 @@
 import { myCoffee, coffeType, useDay } from '../const/const';
+import axios from 'axios';
 
 function MakeCoffee(){
   const {type, brand} = myCoffee();
@@ -7,11 +8,12 @@ function MakeCoffee(){
   const brandPath = "/img/"+brand+".png"
   const typePath = "/img/"+type+".png"
 
-//   console.log(jsonCoffee)
-
   const addCoffee = (e) =>{
-    //   localStorage.setItem(thisDay, JSON.stringify({type:type, brand:brand}))
-    //   console.log(localStorage.getItem(thisDay))
+     axios.get('/api/get').then((res)=>{console.log(res.data.test)});
+      
+      axios.post('/api/post', {thisDay, type, brand})
+       .then(res => console.log(res.data.test))
+       .catch(err => console.log('Login: ', err));
   }
 
     return(
@@ -21,7 +23,6 @@ function MakeCoffee(){
                 <img className= "My-coffee-brand" src = {brandPath} ></img>
             </p>
             <p><button onClick = {(e) => addCoffee(e)}>Add Coffee</button></p>
-            {/* {(localStorage.getItem(thisDay))} */}
         </div>
     )
 }
