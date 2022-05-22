@@ -18,3 +18,9 @@ export const myCoffee = create(set => ({
       ,setType : (input) => set(({type : coffeType[input]}))
       ,setBrand : (input) => set(({brand : coffeBrand[input]}))
   }))
+
+export const myCoffees = create(set => ({
+  coffees : []
+  ,addCoffee : (coffee) => set((state) => ({coffees : [...state.coffees, {coffee}]}))
+  ,resetCoffee : () => set((state) => ({coffees : []}))
+}))

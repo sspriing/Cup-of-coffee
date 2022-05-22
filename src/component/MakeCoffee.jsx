@@ -9,11 +9,15 @@ function MakeCoffee(){
   const typePath = "/img/"+type+".png"
 
   const addCoffee = (e) =>{
-     axios.get('/api/get').then((res)=>{console.log(res.data.test)});
       
-      axios.post('/api/post', {thisDay, type, brand})
+     let year = String(thisDay.getFullYear())
+     let month = String((thisDay.getMonth()+1)).padStart(2,'0')
+     let date = String(thisDay.getDate()).padStart(2,'0')
+     let stringDate = year + month + date
+     axios.post('/api/post', {thisDay:stringDate, type, brand})
        .then(res => console.log(res.data.test))
        .catch(err => console.log('Login: ', err));
+     console.log(stringDate, type, brand)
   }
 
     return(
