@@ -1,5 +1,6 @@
 import { useDay, myCoffee, coffeType } from '../const/const';
 import BrandList from './BrandList';
+import EditCoffeeOption from './EditCoffeeOption';
 
 function EditCoffee() {
   const {thisDay} = useDay();
@@ -14,6 +15,7 @@ function EditCoffee() {
                 </select>
                 </p>
             <p>Brand : <BrandList></BrandList></p>
+            <p><EditCoffeeOption></EditCoffeeOption></p>
         </div>
     )
 }

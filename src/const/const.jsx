@@ -6,6 +6,8 @@ export const coffeBrand =
   {1: 'StarBucks', 2: 'TwoSome', 3: 'Hollys', 4: 'Ediya'
   ,5: 'TomnToms', 6: 'Pascucci', 7:  'AngelInUs', 8: 'GongCha'
   ,9: 'BlueBottle'}
+export const coffeeOption = 
+ {1:'shots', 2:'whip cream', 3:'milk', 4:'decaf', 5:'drink', 6:'custom'}
 
 export const useDay = create(set => ({
     thisDay : new Date()
@@ -22,5 +24,6 @@ export const myCoffee = create(set => ({
 export const myCoffees = create(set => ({
   coffees : []
   ,addCoffee : (coffee) => set((state) => ({coffees : [...state.coffees, {coffee}]}))
+  ,deleteCoffee : (i) => set((state) => ({coffees : state.coffees.filter((item) => item.coffee.srno != i)}))
   ,resetCoffee : () => set((state) => ({coffees : []}))
 }))

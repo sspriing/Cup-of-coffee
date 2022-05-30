@@ -16,7 +16,7 @@ router.get('/api/get', (req, res)=>{
       try {
         connection = await oracledb.getConnection(dbConfig);
         console.log(connection)
-        let execution = "SELECT * FROM COFFEE WHERE USER_ID = "+"'admin'"+"AND COFFEE_DATE = "+req.query.thisDay+"";
+        let execution = "SELECT * FROM COFFEE WHERE USER_ID = "+"'admin'"+"AND COFFEE_DATE = "+req.query.thisDay+" ORDER BY SRNO ASC";
         console.log(execution)
         const result = await connection.execute(execution)
         console.log(result)
@@ -55,6 +55,33 @@ router.post('/api/post',(req, res)=> {
       } catch (err) {
         console.error(err);
       } 
+  }
+  run();
+});
+
+
+
+router.post('/api/delete',(req, res)=> {
+
+  console.log(req.body.params)
+  let thisDay = req.query.thisDay
+    async function run() {
+      let connection;
+      try {
+        connection = await oracledb.getConnection(dbConfig);
+        console.log(connection)
+        console.log
+        
+        let execution2 = "DELETE FROM COFFEE WHERE USER_ID = 'admin' AND COFFEE_DATE = '"+req.body.params.thisDay+"' AND SRNO ="+req.body.params.srno;
+        console.log(execution2)
+        const result = await connection.execute(execution2)
+        console.log(result)
+        connection.commit()      
+        res.send({result : "success"}) 
+      } catch (err) {
+        console.error(err);
+        res.send({result:"fail"})
+      }
   }
   run();
 });

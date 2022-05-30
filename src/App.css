@@ -18,7 +18,22 @@
   color:rgb(12, 89, 40);
 }
 
-button {
+.Delete-button{
+  font-size: 2px;
+  transform: translate(12px, -5px);
+  background-color:#ffffff00;
+}
+
+select{
+  border: none;
+  background-color:#ffffff00;
+  font-size: calc(10px + 2vmin);
+  color:rgb(12, 89, 40);
+}
+
+option{
+  border: none;
+  background-color:#ffffff00;
   font-size: calc(10px + 2vmin);
 }
 
@@ -76,11 +91,20 @@ button.react-calendar__tile.react-calendar__month-view__days__day--neighboringMo
 button.react-calendar__tile.react-calendar__month-view__days__day:hover{
   border: 1.5px solid rgb(22, 90, 14);
   height:70px;
-  color:rgb(12, 89, 40);
+  /* color:rgb(12, 89, 40); */
   background-color: rgba(255, 255, 255, 0.617);
 }
 
-button.react-calendar__tile.react-calendar__month-view__days__day:focus{
+button.react-calendar__tile--active.react-calendar__month-view__days__day{
+  border: 1.5px solid rgb(22, 90, 14);
+  height:70px;
+  color:rgba(255, 255, 255, 0.75);
+  background-color: rgba(12, 89, 40, 0.925);
+}
+
+button.react-calendar__tile--active:enabled:hover, 
+button.react-calendar__tile--active:enabled:focus
+{
   border: 1.5px solid rgb(22, 90, 14);
   height:70px;
   color:rgba(255, 255, 255, 0.75);
@@ -118,14 +142,10 @@ button.react-calendar__tile.react-calendar__month-view__days__day:focus{
 .My-coffee-list{
   height:50px;
   position:relative;
-  top:30px;
 }
 
 .My-coffee-list .My-coffee{
-  height:50px;
-  position:relative;
-  margin-right: 10px;
-  top:30px;
+  margin-right:50px
 }
 
 .My-coffee-list .My-coffee-type{

@@ -2,6 +2,7 @@ import Calendar from 'react-calendar/dist/umd/Calendar';
 import 'react-calendar/dist/Calendar.css';
 import { useDay, myCoffees } from '../const/const';
 import axios from 'axios';
+import {useEffect} from 'react'
 
 function MainCalendar(){
   const {changeDay, thisDay} = useDay();
@@ -27,22 +28,26 @@ function MainCalendar(){
         let date = String(e.getDate()).padStart(2,'0')
         let stringDate = year + month + date
 
-        // console.log(stringDate)
         axios.get('/api/get', {
             params: {
               thisDay:stringDate
             },
-          }).then((res)=>{ res.data.result.rows.map(x =>addCoffee({type:x[3],brand:x[4]}))})
+          }).then((res)=>{ res.data.result.rows.map(x =>addCoffee({srno:x[2],type:x[3],brand:x[4]}))})
              .catch(err => console.log('Login: ', err));
-
     }
+
+    useEffect(() => {
+      onChangeCalendar(thisDay)
+    }, []);
     return(
         <div>
             <p>
-                <Calendar className = "My-calendar" calendarType = "US" onChange = {(e)=> onChangeCalendar(e)}
+                <Calendar className = "My-calendar" calendarType = "US" 
+                    onChange = {(e)=> onChangeCalendar(e)}
                     locale = "en-EN"
                     formatShortWeekday = {(locale, date) => formatDate(date)}
                     navigationLabel ={(date, label) => formatLabel(date)}
+                    defaultValue = {thisDay}
                 ></Calendar>
             </p>
         </div>
