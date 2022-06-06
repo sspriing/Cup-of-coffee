@@ -6,7 +6,6 @@
   "proxy": "http://localhost:5000",
   "scripts": {
     "dev": "vite",
-    "homepage": "https://sspriing.github.io/Cup-of-coffee",
     "build": "vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",

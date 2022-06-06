@@ -11,6 +11,7 @@ export default defineConfig({
             secure: false,      
             ws: true,
         }
-    }
+    },
+  base: '/Cup-of-coffee/'
 }
 })
