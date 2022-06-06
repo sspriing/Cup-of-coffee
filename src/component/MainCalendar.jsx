@@ -53,7 +53,7 @@ function MainCalendar(){
             <p>
             <Calendar className = "My-calendar" calendarType = "US" 
                     onChange = {(e)=> onChangeCalendar(e)}
-                    onViewChange = {(e)=>{ tileContent}}
+                    onViewChange = {(e)=>{ tileContent()}}
                     locale = "en-EN"
                     formatShortWeekday = {(locale, date) => formatDate(date)}
                     navigationLabel ={(date, label) => formatLabel(date)}
