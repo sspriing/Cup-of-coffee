@@ -1,8 +1,9 @@
 import { myCoffee, coffeType, useDay, myCoffees } from '../const/const';
 import axios from 'axios';
+import EditCoffee from './EditCoffee';
 
 function MakeCoffee(){
-  const {type, brand} = myCoffee();
+  const {type, brand, options} = myCoffee();
   const {coffees, addCoffee} = myCoffees();
   const {thisDay} = useDay();
 
@@ -15,10 +16,11 @@ function MakeCoffee(){
      let month = String((thisDay.getMonth()+1)).padStart(2,'0')
      let date = String(thisDay.getDate()).padStart(2,'0')
      let stringDate = year + month + date
-     axios.post('/api/post', {thisDay:stringDate, type, brand})
+
+     axios.post('/api/post', {thisDay:stringDate, type, brand, options})
        .then(res => console.log(res.data.test))
        .catch(err => console.log('Login: ', err));
-     console.log(stringDate, type, brand)
+     console.log(stringDate, type, brand, options)
 
      let maxSrno = 0
      if (coffees.length > 0) {
@@ -34,7 +36,7 @@ function MakeCoffee(){
                 <img className= "My-coffee-type" src = {typePath} ></img> 
                 <img className= "My-coffee-brand" src = {brandPath} ></img>
             </p>
-            <p><button onClick = {(e) => addCoffeeOnClick(e)}>Add Coffee</button></p>
+            <p><button onClick = {(e) => addCoffeeOnClick(e)}>Drink Coffee</button></p>
         </div>
     )
 }

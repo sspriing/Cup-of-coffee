@@ -24,6 +24,11 @@
   background-color:#ffffff00;
 }
 
+button{
+  border:none;
+  background: none;
+}
+
 select{
   border: none;
   background-color:#ffffff00;
@@ -36,6 +41,36 @@ option{
   background-color:#ffffff00;
   font-size: calc(10px + 2vmin);
 }
+
+/* RESPONSIVE ARROWS */
+[class^=arrow]{
+  border:       solid rgb(12, 89, 40);
+  border-width: 0 .1em .1em 0;
+  display:      inline-block;
+  padding:      .20em;
+  width: 12px;
+  height:12px;
+  position:relative;
+  top:-6px;
+  left:6px
+}
+.arrowRight {transform:rotate(-45deg);}
+.arrowLeft  {transform:rotate(135deg);}
+.arrowUp  {transform:rotate(-135deg);}
+.arrowDown  {transform:rotate(45deg); left:10px}
+
+@keyframes rotate90{
+  0% {
+      transform: rotate(45deg);
+      left:5px;
+      top:-12px;
+    }
+  100% {
+      transform:rotate(135deg);
+      left:10px;
+      top:-15px
+    }
+} 
 
 /* react-calendar css*/
 .react-calendar.My-calendar{
@@ -121,6 +156,12 @@ button.react-calendar__tile--active:enabled:focus
   margin:5.5px
 }
 
+.Selected-brand{
+  display:inline-block;
+  position:relative;
+  left:20px;
+}
+
 .My-coffee{
   height:120px;
   position:relative;
@@ -128,7 +169,7 @@ button.react-calendar__tile--active:enabled:focus
 }
 
 .My-coffee-type{
-  height:150px;
+  height:180px;
   position:absolute;
   transform: translate(-50%, -50%);
 }
@@ -160,4 +201,16 @@ button.react-calendar__tile--active:enabled:focus
   margin-right:10px;
   /* transform: translate(-50%, -50%); */
   top:15px;
+}
+
+.dot{
+  left:50%;
+  transform: translate(-50%,-10%);
+  position: relative;
+  /* display: contents; */
+}
+
+abbr{
+  top:-15px;
+  position: initial;
 }
