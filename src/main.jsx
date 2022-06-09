@@ -5,8 +5,6 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Router basename={process.env.PUBLIC_URL}>
       <App />
-    </Router>
   </React.StrictMode>
 )

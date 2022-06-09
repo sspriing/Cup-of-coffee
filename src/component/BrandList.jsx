@@ -17,8 +17,8 @@ function BrandList(){
 
     return (
         <div>
-            Brand<button className={fold?"arrowRight":"arrowDown"} onClick={setFold}></button> 
-            <div className="Selected-brand" hidden= {!fold}>{brand}</div>
+            Brand : 
+            <div className="Selected-brand" hidden= {!fold}  onClick={setFold}>{brand} <button className={fold?"arrowRight":"arrowDown"}></button>  </div>
             <div className="Brand-list" hidden={fold}>
                 {Object.entries(coffeBrand).map((key, value)=>(
                     <img className="Brand-icon" src = {"img/"+coffeBrand[value+1]+".png"} 

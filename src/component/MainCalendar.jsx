@@ -19,10 +19,9 @@ function MainCalendar(){
         var label = tmpdate.getFullYear() + "年" + month + "月"
         return label
       }
-    const onChangeCalendar = (e) =>{
+    const onChangeCalendar = (e, bool) =>{
         changeDay(e)    //현재 일자 변경
         resetCoffee()   //coffees 초기화
-        resetMonthCoffee() //coffee 달력 초기화
         
         //thisDay 의 커피 리스트 조회
         let year = String(e.getFullYear())
@@ -36,13 +35,17 @@ function MainCalendar(){
             },
           }).then((res)=>{ res.data.result.rows.map(x =>addCoffee({srno:x[2],type:x[3],brand:x[4]}))})
              .catch(err => console.log('Login: ', err));
-        axios.get('/api/getMonth', {
-            params: {
-              thisDay:stringDate
-            },
-          }).then((res)=>{ res.data.result.rows.map(x => addMonthCoffee([x[0], x[1]])) })
-             .catch(err => console.log('Login: ', err));
+        
+        if(bool == true)
+          {resetMonthCoffee() //coffee 달력 초기화
+          axios.get('/api/getMonth', {
+              params: {
+                thisDay:stringDate
+              },
+            }).then((res)=>{ res.data.result.rows.map(x => addMonthCoffee([x[0], x[1]])) })
+              .catch(err => console.log('Login: ', err));}
     }
+
     useEffect(() => {
       onChangeCalendar(thisDay)
     }, []);
@@ -53,7 +56,7 @@ function MainCalendar(){
             <p>
             <Calendar className = "My-calendar" calendarType = "US" 
                     onChange = {(e)=> onChangeCalendar(e)}
-                    onViewChange = {(e)=>{ tileContent()}}
+                    onActiveStartDateChange = {(e)=>{ console.log(onChangeCalendar(e.activeStartDate, true))}}
                     locale = "en-EN"
                     formatShortWeekday = {(locale, date) => formatDate(date)}
                     navigationLabel ={(date, label) => formatLabel(date)}
@@ -78,7 +81,7 @@ function MainCalendar(){
                               return <div className='dot'>●●●</div>
                           }
                         })
-                        return result
+                        return(<fragment>{result}</fragment>) 
                       }}
                     }
                     }
