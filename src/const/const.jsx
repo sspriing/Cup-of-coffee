@@ -6,7 +6,8 @@ export const coffeType =
 export const coffeBrand = 
   {1: 'StarBucks', 2: 'TwoSome', 3: 'Hollys', 4: 'Ediya'
   ,5: 'TomnToms', 6: 'Pascucci', 7:  'AngelInUs', 8: 'GongCha'
-  ,9: 'BlueBottle'}
+  ,9: 'BlueBottle', 10:'Compose', 11:'Dalkomm', 12:'Mammoth', 13:'MegaCoffee'
+  ,14: 'Artisee'}
   
 export const coffeeOption = 
  {1:'shots', 2:'whip cream', 3:'milk', 4:'decaf', 5:'drink', 6:'custom'}
@@ -37,3 +38,28 @@ export const myCoffees = create(set => ({
   ,deleteCoffee : (i) => set((state) => ({coffees : state.coffees.filter((item) => item.coffee.srno != i)}))
   ,resetCoffee : () => set(() => ({coffees : []}))
 }))
+
+export const modalStyle = {
+  overlay: {
+      position: 'absolute',
+      top: '95px',
+      bottom: '70px',
+      left: '50%',
+      marginLeft: '35px',
+      marginRight: 'auto',
+      transform: 'translate(-50%, 0%)',
+      backgroundColor: 'rgba(255, 255, 255, 0.75)',
+      border: 'none',
+  },
+  content: {
+      position: 'absolute',
+      top: '0px',
+      left: '0px',
+      right: '0px',
+      bottom: '0px',
+      background: '#fff',
+      overflow: 'auto',
+      padding: '10px',
+      border: 'none',
+  }
+};

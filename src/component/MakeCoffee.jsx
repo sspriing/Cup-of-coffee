@@ -11,6 +11,7 @@ function MakeCoffee(){
   const typePath = "/img/"+type+".png"
 
   const addCoffeeOnClick = (e) =>{
+    console.log(e)
       
      let year = String(thisDay.getFullYear())
      let month = String((thisDay.getMonth()+1)).padStart(2,'0')
@@ -35,8 +36,7 @@ function MakeCoffee(){
             <p className="My-coffee">
                 <img className= "My-coffee-type" src = {typePath} ></img> 
                 <img className= "My-coffee-brand" src = {brandPath} ></img>
-            </p>
-            <p><button onClick = {(e) => addCoffeeOnClick(e)}>Drink Coffee</button></p>
+            <button onClick = {(e) => addCoffeeOnClick(e)}>Drink Coffee</button></p>
         </div>
     )
 }
