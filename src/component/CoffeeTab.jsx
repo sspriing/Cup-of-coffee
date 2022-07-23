@@ -1,7 +1,5 @@
 import { Fragment } from 'react';
-import Modal from 'react-modal'
 import create from 'zustand';
-import { modalStyle } from '../const/const';
 import CoffeeList from './CoffeeList';
 import EditCoffee from './EditCoffee';
 import MakeCoffee from './MakeCoffee'
@@ -13,19 +11,22 @@ const tabOnClick= create(set=>({
 
 const modalOnClick = create(set => ({
     modal : false
-    ,openModal : ()=>set(state=>({modal : !state.modal}))
+    ,openModal : ()=>set(state=>({modal : true}))
+    ,closeModal : ()=>set(state=>({modal : false}))
 }))
 
 function CoffeeTab(){
     const {tab, setTab} = tabOnClick()
-    const {modal, openModal} = modalOnClick()
+    const {modal, openModal, closeModal} = modalOnClick()
     return(
-        <div className='-box'>
+        <div className='Tab'>
             <button className='Tab-button' onClick={(e)=>{setTab(1), openModal()}}>Drink</button>
             <button className='Tab-button'onClick={(e)=>{setTab(2), openModal()}}>List</button>
-            <Modal isOpen = {modal} onRequestClose = {(e)=>openModal()} style = {modalStyle} >
-                {tab==1?<Fragment><EditCoffee></EditCoffee><MakeCoffee></MakeCoffee></Fragment>:<CoffeeList></CoffeeList>}
-            </Modal>
+            <div className = {modal? 'Modal-back': 'Modal-close'} onClick={(e)=>{closeModal()}}>
+                <div className= {modal? 'Modal-open':'Modal-close'} onClick={(e)=>{e.stopPropagation()}} >
+                    <div className='Modal-body'>{tab==1?<Fragment><MakeCoffee></MakeCoffee></Fragment>:<CoffeeList></CoffeeList>}</div>
+                </div>
+            </div>
         </div>
     )
 }

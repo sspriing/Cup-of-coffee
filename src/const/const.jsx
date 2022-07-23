@@ -38,28 +38,3 @@ export const myCoffees = create(set => ({
   ,deleteCoffee : (i) => set((state) => ({coffees : state.coffees.filter((item) => item.coffee.srno != i)}))
   ,resetCoffee : () => set(() => ({coffees : []}))
 }))
-
-export const modalStyle = {
-  overlay: {
-      position: 'absolute',
-      top: '95px',
-      bottom: '70px',
-      left: '50%',
-      marginLeft: '35px',
-      marginRight: 'auto',
-      transform: 'translate(-50%, 0%)',
-      backgroundColor: 'rgba(255, 255, 255, 0.75)',
-      border: 'none',
-  },
-  content: {
-      position: 'absolute',
-      top: '0px',
-      left: '0px',
-      right: '0px',
-      bottom: '0px',
-      background: '#fff',
-      overflow: 'auto',
-      padding: '10px',
-      border: 'none',
-  }
-};

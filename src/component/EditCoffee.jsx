@@ -6,7 +6,7 @@ function EditCoffee() {
   const {thisDay} = useDay();
   const {type, brand, setType, setBrand} = myCoffee();
     return(
-        <div>
+        <div className='Edit-coffee'>
             {/* <p>Coffee of {thisDay.getFullYear()}년 {thisDay.getMonth()+1}월 {thisDay.getDate()}일</p>
             <p>{type} from {brand}</p> */}
             <p>Type : 

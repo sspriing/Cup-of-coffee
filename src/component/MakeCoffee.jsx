@@ -1,18 +1,27 @@
 import { myCoffee, coffeType, useDay, myCoffees } from '../const/const';
+import create from 'zustand';
 import axios from 'axios';
 import EditCoffee from './EditCoffee';
+import Loading from './Loading';
+
+const onLoading= create(set=>({
+  loading : false
+  ,onLoad : () => set(state=>({loading: true}))
+  ,endLoad : () => set(state=>({loading:false}))
+}))
 
 function MakeCoffee(){
   const {type, brand, options} = myCoffee();
   const {coffees, addCoffee} = myCoffees();
   const {thisDay} = useDay();
+  const {loading, onLoad, endLoad} = onLoading();
 
   const brandPath = "/img/"+brand+".png"
   const typePath = "/img/"+type+".png"
 
   const addCoffeeOnClick = (e) =>{
     console.log(e)
-      
+    onLoad()
      let year = String(thisDay.getFullYear())
      let month = String((thisDay.getMonth()+1)).padStart(2,'0')
      let date = String(thisDay.getDate()).padStart(2,'0')
@@ -28,15 +37,18 @@ function MakeCoffee(){
        maxSrno = (coffees[coffees.length -1].coffee.srno) + 1
       }
      addCoffee({srno:maxSrno,type:type,brand:brand})
-     
+     endLoad()
   }
 
     return(
         <div>
+            {loading? <Loading></Loading>:null}
             <p className="My-coffee">
                 <img className= "My-coffee-type" src = {typePath} ></img> 
                 <img className= "My-coffee-brand" src = {brandPath} ></img>
-            <button onClick = {(e) => addCoffeeOnClick(e)}>Drink Coffee</button></p>
+            </p>
+            <EditCoffee></EditCoffee>
+            <button className='Drink-coffee' onClick = {(e) => addCoffeeOnClick(e)}>Drink Coffee</button>
         </div>
     )
 }

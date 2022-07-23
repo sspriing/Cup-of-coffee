@@ -171,6 +171,52 @@ button.react-calendar__tile--active:enabled:focus
   margin: 12px 12px 0px 12px;
 }
 
+.Modal-back{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.Modal-open{
+  width: 90%;
+  height:100%;
+  max-width: 450px;
+  margin: 0 auto;
+  border-radius: 0.1rem;
+  
+  background-color: rgb(204, 188, 170);
+  /* 팝업이 열릴때 스르륵 열리는 효과 */
+  /* animation: modal-show 0.1s; */
+  overflow: hidden;
+}
+
+.Modal-close{
+  display: none;
+}
+
+.Modal-body{
+  margin : 20px;
+}
+
+@keyframes modal-show {
+  from {
+    opacity: 0;
+    background-color: rgba(255, 255, 255, 0.326);
+  }
+  to {
+    opacity: 1;
+    background-color: #fff;
+  }
+}
+
+.Edit-coffee{
+  text-align: left;
+}
+
+
 .Brand-icon{
   height: 45px;
   margin:3px
@@ -188,21 +234,20 @@ button.react-calendar__tile--active:enabled:focus
 }
 
 .My-coffee{
-  height:200px;
+  height:250px;
   position:relative;
-  top:60px;
 }
 
 .My-coffee-type {
   height: 180px;
   position: absolute;
-  transform: translate(0%, 0%);
+  transform: translate(-50%, 0%);
 }
 
 .My-coffee-brand {
   height: 55px;
   position: absolute;
-  transform: translate(50%, 0%);
+  transform: translate(-50%, 0%);
   top: 82px;
 }
 
@@ -231,6 +276,10 @@ button.react-calendar__tile--active:enabled:focus
   top:70px;
 }
 
+.Drink-coffee:hover{
+  color: #d10000;
+}
+
 .dot{
   left:50%;
   transform: translate(-50%,-10%);
@@ -241,4 +290,49 @@ button.react-calendar__tile--active:enabled:focus
 abbr{
   top:-15px;
   position: initial;
+}
+
+
+.Loader,
+.Loader:after {
+  border-radius: 50%;
+  width: 10em;
+  height: 10em;
+}
+.Loader {
+  font-size: 5px;
+  position: fixed; 
+  top: 40%; 
+  left: calc(50% - 6em);
+  transform: translate(-50%, 0);
+  text-indent: -9999em;
+  border-top: 2em solid rgba(22,90,24, 0.2);
+  border-right: 2em solid rgba(22,90,24, 0.2);
+  border-bottom: 2em solid rgba(22,90,24, 0.2);
+  border-left: 2em solid #165a18;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 1.1s infinite linear;
+  animation: load8 1.1s infinite linear;
+}
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
