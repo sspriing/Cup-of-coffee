@@ -11,11 +11,6 @@ function App() {
     <div className="App">
       <header className="App-header">
         <MainCalendar></MainCalendar>
-        {/* <CoffeeList></CoffeeList>
-        <EditCoffee></EditCoffee>
-        <MakeCoffee></MakeCoffee> */}
-        <CoffeeTab></CoffeeTab>
-        {/* {aa} */}
       </header>
     </div>
   )

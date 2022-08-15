@@ -3,6 +3,9 @@ import create from 'zustand';
 import axios from 'axios';
 import EditCoffee from './EditCoffee';
 import Loading from './Loading';
+import { tabOnClick } from '../const/const';
+
+// Tab # 2
 
 const onLoading= create(set=>({
   loading : false
@@ -15,6 +18,7 @@ function MakeCoffee(){
   const {coffees, addCoffee} = myCoffees();
   const {thisDay} = useDay();
   const {loading, onLoad, endLoad} = onLoading();
+  const {setTab} = tabOnClick(); 
 
   const brandPath = "/img/"+brand+".png"
   const typePath = "/img/"+type+".png"
@@ -49,6 +53,7 @@ function MakeCoffee(){
             </p>
             <EditCoffee></EditCoffee>
             <button className='Drink-coffee' onClick = {(e) => addCoffeeOnClick(e)}>Drink Coffee</button>
+            <button onClick = {(e)=> setTab(1)}>LIST</button>
         </div>
     )
 }

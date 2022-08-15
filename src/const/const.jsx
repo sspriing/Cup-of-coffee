@@ -38,3 +38,14 @@ export const myCoffees = create(set => ({
   ,deleteCoffee : (i) => set((state) => ({coffees : state.coffees.filter((item) => item.coffee.srno != i)}))
   ,resetCoffee : () => set(() => ({coffees : []}))
 }))
+
+export const tabOnClick= create(set=>({
+  tab : 1
+  ,setTab : (input)=>set(state=>({tab: input}))
+}))
+
+export const modalOnClick = create(set => ({
+  modal : false
+  ,openModal : ()=>set(state=>({modal : true}))
+  ,closeModal : ()=>set(state=>({modal : false}))
+}))

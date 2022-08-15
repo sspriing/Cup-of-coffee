@@ -1,11 +1,13 @@
-import { useDay, myCoffee, coffeType, myCoffees } from '../const/const';
+import { useDay, myCoffee, tabOnClick, myCoffees } from '../const/const';
 import axios from 'axios';
 import BrandList from './BrandList';
 
+// Tab # 1
 function CoffeeList() {
   const {thisDay} = useDay();
   const {type, brand, setType, setBrand} = myCoffee();
   const {coffees, deleteCoffee} = myCoffees();
+  const {setTab} = tabOnClick();
 
   const deleteOnClick = (i)=>{
       
@@ -25,7 +27,6 @@ function CoffeeList() {
     deleteCoffee(i)
   }
 
-//   coffees.map((x)=>{console.log(x)})
     return(
         <div className='My-coffee-list'>
             {coffees.map((x, i)=>(
@@ -38,6 +39,7 @@ function CoffeeList() {
                     <button className = "Delete-button" onClick = {(e) => deleteOnClick(x.coffee.srno)}>x</button>  
                 </span>
             ))}
+            <button onClick = {(e)=> setTab(2)}>DRINK</button>
         </div>
     )
 }
