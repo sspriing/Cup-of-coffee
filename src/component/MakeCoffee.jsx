@@ -53,7 +53,8 @@ function MakeCoffee(){
             </p>
             <EditCoffee></EditCoffee>
             <button className='Drink-coffee' onClick = {(e) => addCoffeeOnClick(e)}>Drink Coffee</button>
-            <button onClick = {(e)=> setTab(1)}>LIST</button>
+            <br/>
+            <button className='Drink-coffee' onClick = {(e)=> setTab(1)}>Go To List</button>
         </div>
     )
 }
