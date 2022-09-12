@@ -18,7 +18,7 @@ function MainCalendar(){
       var weekday = ["日","月","火","水","木","金","土"]
       return weekday[date.getDay()]
     }
-
+    
     const formatLabel = (date)=>{
         var tmpdate = new Date() 
         tmpdate = date.date

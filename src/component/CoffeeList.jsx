@@ -1,15 +1,10 @@
-import { useDay, myCoffee, tabOnClick, myCoffees } from '../const/const';
-import create from 'zustand';
+import { useDay, myCoffee, tabOnClick, myCoffees, cardFlip } from '../const/const';
 import axios from 'axios';
-import BrandList from './BrandList';
 import { Fragment } from 'react';
+import { ToastContainer, toast, Flip } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Tab # 1
-
-const cardFlip= create(set=>({
-   backCard : -1
-  ,flipCard : (i) => set(state=>(i==state.backCard?{backCard:-1}:{backCard: i}))
-}))
 
 function CoffeeList() {
   const {thisDay} = useDay();
@@ -36,7 +31,7 @@ function CoffeeList() {
           thisDay:stringDate,
           srno : i
         },
-      }).then((res)=>{ res.data.result == "success" ? console.log(i) : console.log("fail")})
+      }).then((res)=>{ res.data.result == "success" ? toast.error('Coffee Deleted', {transition:Flip}) : console.log("delete fail")})
 
     deleteCoffee(i)
   }
@@ -47,7 +42,8 @@ function CoffeeList() {
             {coffees.map((x, i)=>(
                 <div className='Coffee-card'>
                   <div className='Coffee-card-inner' onClick = {(e)=>{flipCard(i)}}>
-{backCard!=i?
+                  {
+                   backCard!=i?
                     <span className='My-coffee-front' onClick = {(e) =>{showDetail(i)}}>
                         <img className="My-coffee-type" src = {"img/"+x.coffee.type+".png"} 
                             onClick={(e) =>{}}></img>
@@ -58,13 +54,25 @@ function CoffeeList() {
                     <span className='My-coffee-back'>
                       <div>{x.coffee.brand}</div>
                       <div>{x.coffee.type}</div>
-                    </span> }
+                    </span> 
+                  }
                   </div>
                 </div>
             ))}
         </div>
         
         <button className='Drink-coffee' onClick = {(e)=> setTab(2)}>Go To Drink</button>
+        <ToastContainer
+              position="top-center"
+              autoClose={2000}
+              hideProgressBar
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable={false}
+              pauseOnHover={false}
+         />
       </Fragment>
     )
 }

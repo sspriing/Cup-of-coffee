@@ -201,6 +201,21 @@ button.react-calendar__tile--active:enabled:focus
   margin : 20px;
 }
 
+
+::-webkit-scrollbar {
+  width: 7px;  /* 스크롤바의 너비 */
+}
+
+::-webkit-scrollbar-thumb {
+  height: 30%; /* 스크롤바의 길이 */
+  background: rgb(163 150 135); /* 스크롤바의 색상 */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(255 255 255 / 16%);  /*스크롤바 뒷 배경 색상*/
+}
+
 @keyframes modal-show {
   from {
     opacity: 0;
@@ -245,13 +260,13 @@ button.react-calendar__tile--active:enabled:focus
 .My-coffee-type {
   height: 180px;
   position: absolute;
-  transform: translate(-50%, 0%);
+  transform: translate(-50%, 15%);
 }
 
 .My-coffee-brand {
   height: 55px;
   position: absolute;
-  transform: translate(-50%, 150%);
+  transform: translate(-50%, 200%);
 }
 
 .My-coffee-list{
@@ -261,15 +276,17 @@ button.react-calendar__tile--active:enabled:focus
 }
 
 .My-coffee-list .My-coffee-type{
-  height:200px;
+  height:180px;
   position:absolute;
   margin-top: 20px;
+  transform: translate(-50%, 5%);
 }
 .My-coffee-list .My-coffee-brand{
-  height:50px;
+  height:55px;
   position:absolute;
   margin-top:45px;
   margin-right:10px;
+  transform: translate(-50%, 120%);
 }
 
 .Coffee-card {
@@ -309,7 +326,7 @@ button.react-calendar__tile--active:enabled:focus
   margin: 10px;
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
-  transform: rotateY(180deg);
+  /* transform: rotateY(180deg); */
 }
 
 .Delete-button{

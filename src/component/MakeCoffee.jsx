@@ -4,6 +4,8 @@ import axios from 'axios';
 import EditCoffee from './EditCoffee';
 import Loading from './Loading';
 import { tabOnClick } from '../const/const';
+import { ToastContainer, toast, Flip } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Tab # 2
 
@@ -32,7 +34,7 @@ function MakeCoffee(){
      let stringDate = year + month + date
 
      axios.post('/api/post', {thisDay:stringDate, type, brand, options})
-       .then(res => console.log(res.data.test))
+       .then(res => toast.success(brand+' '+type+' added!',{transition:Flip}))
        .catch(err => console.log('Login: ', err));
      console.log(stringDate, type, brand, options)
 
@@ -55,6 +57,17 @@ function MakeCoffee(){
             <button className='Drink-coffee' onClick = {(e) => addCoffeeOnClick(e)}>Drink Coffee</button>
             <br/>
             <button className='Drink-coffee' onClick = {(e)=> setTab(1)}>Go To List</button>
+            <ToastContainer
+              position="top-center"
+              autoClose={2000}
+              hideProgressBar
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable={false}
+              pauseOnHover={false}
+            />
         </div>
     )
 }
